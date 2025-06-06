@@ -1,0 +1,1 @@
+Lesson 1: homework dedicated to lesson 1 is placed in "react-test-app/src/lesson1"

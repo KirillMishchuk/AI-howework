@@ -1,0 +1,32 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+}
+
+@media (max-width: 767.98px) {
+    .menu {
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        transform: translateY(-150%);
+        transition: 0.3s ease;
+        /* Add these to prevent any potential layout shifts */
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .menu.open {
+        transform: translateY(0);
+        visibility: visible;
+        opacity: 1;
+    }
+}

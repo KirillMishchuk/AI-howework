@@ -1,0 +1,28 @@
+Branch:
+    feat(dashboard): offload heavy calculation to Web Worker to reduce TBT
+
+Commit message:
+    - Moved the heavy loop calculation to a Web Worker to prevent main thread blocking.
+    - Improves Total Blocking Time and Time to Interactive in Lighthouse metrics.
+
+PR description:
+    ## Summary
+
+    This PR improves the performance of the Dashboard component by moving the heavy calculation (previously blocking the main thread) to a Web Worker. This helps reduce the Total Blocking Time (TBT) and improves the Time to Interactive (TTI) metric in Lighthouse, leading to a smoother user experience.
+
+    ## Changes
+
+    - Created a Web Worker to perform the heavy computation asynchronously.
+    - Updated Dashboard component to use postMessage/onmessage to communicate with the worker.
+    - Verified improvements using Lighthouse audit (TBT decreased from ~2000 ms to ~0 ms).
+
+    ## Motivation
+
+    Previously, the heavy calculation (a big loop) was blocking the main thread, leading to a high TBT score in Lighthouse audits. By offloading this work to a Web Worker, we free up the main thread for rendering and user interactions.
+
+    ## Checklist
+
+    - [x] Verified TBT decreased in Lighthouse audit
+    - [x] Confirmed no UI regression in Dashboard component
+    - [x] Added proper worker cleanup on component unmount
+

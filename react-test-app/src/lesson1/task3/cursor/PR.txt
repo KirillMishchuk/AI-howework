@@ -1,0 +1,49 @@
+Commit:
+perf: optimize heavy computation in Dashboard component
+
+- Move billion-iteration computation to Web Worker
+- Add chunked fallback implementation using requestAnimationFrame
+- Prevent main thread blocking during calculation
+- Add loading state indicator for better UX
+
+Description:
+## Performance Optimization for Dashboard Component
+
+### Problem
+The Dashboard component was performing a heavy computation (summing 1 billion numbers) directly on the main thread, resulting in:
+- High Total Blocking Time (TBT) in Lighthouse metrics
+- Poor user experience due to UI freezing
+- Unresponsive page during calculation
+
+### Solution
+Implemented two approaches to resolve the performance bottleneck:
+
+1. **Primary Solution: Web Worker Implementation**
+   - Moved computation to a dedicated Web Worker thread
+   - Main thread remains responsive for user interactions
+   - Clean worker cleanup on component unmount
+   - Zero impact on TBT metric
+
+2. **Fallback Solution: Chunked Computation**
+   - Alternative implementation using `requestAnimationFrame`
+   - Breaks computation into 1M number chunks
+   - Allows UI updates between chunks
+   - Significantly reduced TBT compared to original
+
+### Technical Details
+- Created new `calculator.worker.ts` for isolated computation
+- Implemented proper worker lifecycle management
+- Added loading state indicator for better UX
+- Maintained type safety with TypeScript
+
+### Testing
+Please verify:
+- [ ] Dashboard loads without UI freezing
+- [ ] Computation completes successfully
+- [ ] No console errors
+- [ ] Lighthouse performance score improvement
+- [ ] Works across different browsers
+
+### Lighthouse Impact
+- Before: High TBT due to main thread blocking
+- After: Minimal TBT with Web Worker solution
