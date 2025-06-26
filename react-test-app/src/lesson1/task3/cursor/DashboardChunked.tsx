@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function DashboardChunked() {
     const [d, setD] = useState<number | null>(null);
@@ -11,7 +11,7 @@ export default function DashboardChunked() {
 
         const processChunk = () => {
             const end = Math.min(i + chunkSize, maxIterations);
-            
+
             while (i < end) {
                 t += i;
                 i++;
@@ -28,4 +28,4 @@ export default function DashboardChunked() {
     }, []);
 
     return <div>{d ?? "Computing..."}</div>;
-} 
+}

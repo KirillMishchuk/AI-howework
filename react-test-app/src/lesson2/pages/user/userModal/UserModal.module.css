@@ -1,0 +1,63 @@
+.closeButton {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.15s;
+}
+.closeButton:hover,
+.closeButton:focus {
+    color: #111;
+}
+
+.modalHeader {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #222;
+}
+.emailLink {
+    color: #2563eb;
+    text-decoration: underline;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    display: inline-block;
+}
+.sectionTitle {
+    font-weight: 600;
+    margin-top: 1.2rem;
+    margin-bottom: 0.3rem;
+    font-size: 1.08rem;
+    color: #222;
+}
+.section {
+    margin-bottom: 0.7rem;
+}
+.label {
+    font-weight: 500;
+    color: #333;
+}
+.mapLink {
+    color: #2563eb;
+    text-decoration: underline;
+    font-size: 0.98rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    margin-top: 0.2em;
+}
+.mapIcon {
+    font-size: 1.1em;
+    vertical-align: middle;
+}
+
+@media (max-width: 500px) {
+    .modalContent {
+        padding: 1rem;
+        min-width: 0;
+    }
+}

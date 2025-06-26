@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { DashboardGPT } from "./chatGPT/Dashboard";
 import { DashboardCursor } from "./cursor/Dashboard";
 import DashboardChunked from "./cursor/DashboardChunked";

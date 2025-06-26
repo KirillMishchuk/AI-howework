@@ -1,0 +1,35 @@
+.closeButton {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.15s;
+}
+.closeButton:hover,
+.closeButton:focus {
+    color: #111;
+}
+
+.modalHeader {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #222;
+}
+.emailLink {
+    color: #2563eb;
+    text-decoration: underline;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    display: inline-block;
+}
+.body {
+    color: #444;
+    margin: 1.1rem 0 0.7rem 0;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}

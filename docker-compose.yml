@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+    frontend:
+        build: ./react-test-app
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./react-test-app:/app
+            - /app/node_modules
+#
+#  server:
+#    environment:
+#      - NODE_ENV=development
+#    build:
+#      context: ./server
+#      dockerfile: Dockerfile
+#    container_name: server
+#    volumes:
+#      - ./server/src:/app/src
+#    expose:
+#      - "3002"
+#    ports:
+#      - "3002:3002"
+#      - "9229:9229"
+#    command: npm run dev
+#
+#  client:
+#    environment:
+#      - NODE_ENV=development
+#    build:
+#      context: ./client
+#      dockerfile: Dockerfile.dev
+#    container_name: client
+#    volumes:
+#      - ./client/src:/app/src
+#      - /app/node_modules
+#    ports:
+#      - "3000:3000"
+#    depends_on:
+#      - server
+#
+#
+
